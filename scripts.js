@@ -11,8 +11,8 @@ function redirectAndStartTimer() {
     window.location.href = trafficSourceUrl;
 }
 
-// Function to enable the green button after 23 seconds
-function enableGreenButtonAfterTimer() {
+// Function to check the time spent and enable the green button if needed
+function checkGreenButtonStatus() {
     const redirectTime = localStorage.getItem("redirectTime");
     const greenButton = document.getElementById("greenButton");
     const videoLink = document.getElementById("videoLink");
@@ -21,10 +21,10 @@ function enableGreenButtonAfterTimer() {
         const elapsedTime = new Date().getTime() - redirectTime;
 
         if (elapsedTime >= requiredTime) {
-            // If 23 seconds have already passed, enable the green button immediately
+            // If 23 seconds have passed, enable the green button
             greenButton.disabled = false;
         } else {
-            // If not, calculate the remaining time and enable the green button after that delay
+            // If not, set a timeout to enable the green button after the remaining time
             setTimeout(() => {
                 greenButton.disabled = false;
             }, requiredTime - elapsedTime);
@@ -35,12 +35,12 @@ function enableGreenButtonAfterTimer() {
             greenButton.disabled = false;
         }, requiredTime);
     }
-
-    // Set up the green button to redirect to the hidden link
-    greenButton.addEventListener("click", () => {
-        window.location.href = videoLink.href;
-    });
 }
 
+// Add event listener to the green button to redirect to the hidden link
+document.getElementById("greenButton").addEventListener("click", () => {
+    window.location.href = document.getElementById("videoLink").href;
+});
+
 // Call this function when the page loads
-window.onload = enableGreenButtonAfterTimer;
+window.onload = checkGreenButtonStatus;
