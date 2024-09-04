@@ -4,21 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Button Redirect Page</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #greenButton:disabled {
+            background-color: grey;
+            cursor: not-allowed;
+        }
+        #greenButton {
+            background-color: green;
+            color: white;
+        }
+        #redButton {
+            background-color: red;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    <div class="description">
-        <p>Video බලන්න නම් මේ විධියට කරන්න.</p>
-        <p>මුලින්ම නියම රතු පාට බටන් එක ඔබන්න, පටස්සේ ඔබාට</p>
-        <p>වෙන පටිවිකර යයි. ඊටපස්සේ තත්පර 20ක් විතර ඉන්න</p>
-        <p>රටස්සේ බටන් ඔබලා එක ඇතුළ ඇදවෙනියට නියම කොළ</p>
-        <p>පාට බටන් එක ඔබන්න. එකට ඔබලා Video එකට</p>
-        <p>කෙලින්ම යයි.</p>
-    </div>
 
-    <button id="redButton" onclick="redirectAndStartTimer()">ඔබන්න</button>
-    <button id="greenButton" disabled>Video බලන්න</button>
+    <button id="redButton" onclick="redirectAndStartTimer()">Click Me</button>
+    <button id="greenButton" disabled>Watch Video</button>
 
-    <script src="scripts.js"></script>
-</body>
-</html>
+    <script>
+        // Your traffic source URL
+        const trafficSourceUrl = "https://your-traffic-source-link.com";
+
+        // Function to handle the red button click
+        function redirectAndStartTimer() {
+            // Store the current timestamp in localStorage
+            localStorage.setItem("redirectTime", new Date().getTime());
