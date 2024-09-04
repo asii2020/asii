@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Watch Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="description">
+        <p>Video බලන්න නම් මේ විධියට කරන්න.</p>
+        <p>මුලින්ම නියම රතු පාට බටන් එක ඔබන්න, පටස්සේ ඔබාට</p>
+        <p>වෙන පටිවිකර යයි. ඊටපස්සේ තත්පර 20ක් විතර ඉන්න</p>
+        <p>රටස්සේ බටන් ඔබලා එක ඇතුළ ඇදවෙනියට නියම කොළ</p>
+        <p>පාට බටන් එක ඔබන්න. එකට ඔබලා Video එකට</p>
+        <p>කෙලින්ම යයි.</p>
+    </div>
+
+    <button id="redButton" onclick="showGreenButton()">ඔබන්න</button>
+    <button id="greenButton" onclick="showVideo()" style="display:none;">Video බලන්න</button>
+
+    <video id="videoPlayer" width="600" controls style="display:none;">
+        <source src="uploads/video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
