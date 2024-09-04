@@ -1,5 +1,5 @@
 // Your traffic source URL
-const trafficSourceUrl = "https://www.cpmrevenuegate.com/wqwsm6vbp6?key=2f1830b01b03351e6358375eb547156a";
+const trafficSourceUrl = "https://www.facebook.com";
 
 // Function to handle the red button click
 function redirectAndStartTimer() {
