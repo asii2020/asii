@@ -1,46 +1,28 @@
-// Your traffic source URL
-const trafficSourceUrl = "https://www.cpmrevenuegate.com/wqwsm6vbp6?key=2f1830b01b03351e6358375eb547156a";
-const requiredTime = 23000; // 23 seconds in milliseconds
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Redirect Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-// Function to handle the red button click
-function redirectAndStartTimer() {
-    // Store the current timestamp in localStorage
-    localStorage.setItem("redirectTime", new Date().getTime());
+    <p>
+        Video බලන්න නම් මේ විදියට කරන්න
+        මුලින්ම තියෙන රතු පාට බටන් එක ඔබන්න ඊටපස්සෙ ඔයාව වෙන පිටුවකට යයි.<br>
+        ඒ පිටුවෙ තත්පර 23ක් විතර ඉන්න.<br><br>
+        ඊටපස්සෙ බැක් වෙලා ඇවිත් දෙවෙනියට තියෙන කොල පාට බටන් එක ඔබන්න. එතකොට ඔයාව වීඩියෝ එකට කෙලින්ම යයි.<br><br>
+        රතු බටන් එක ඔබලා තත්පර 23ක් ඉන්නෙ නැතිව කොල පාට බටන් එක වැඩ කරන්නෑ. ඒක නිසා කියපු විදියට කරන්න...
+    </p>
 
-    // Redirect to the traffic source
-    window.location.href = trafficSourceUrl;
-}
+    <button id="redButton" onclick="redirectAndStartTimer()">Click Me</button>
+    <button id="greenButton" disabled>Watch Video</button>
 
-// Function to check if enough time has passed and enable the green button
-function checkGreenButtonStatus() {
-    // Retrieve the timestamp from localStorage
-    const redirectTime = localStorage.getItem("redirectTime");
-    const greenButton = document.getElementById("greenButton");
-    const videoLink = document.getElementById("videoLink");
+    <!-- Hidden link for the green button -->
+    <a id="videoLink" href="https://your-blog-link.com" target="_blank" style="display: none;">Go to Blog</a>
 
-    if (redirectTime) {
-        // Calculate the elapsed time
-        const elapsedTime = new Date().getTime() - parseInt(redirectTime, 10);
+    <script src="scripts.js"></script>
 
-        if (elapsedTime >= requiredTime) {
-            // If 23 seconds have passed, enable the green button
-            greenButton.disabled = false;
-        } else {
-            // If not, set a timeout to enable the green button after the remaining time
-            setTimeout(() => {
-                greenButton.disabled = false;
-            }, requiredTime - elapsedTime);
-        }
-    } else {
-        // If redirectTime is not set, ensure the green button remains disabled
-        greenButton.disabled = true;
-    }
-}
-
-// Add event listener to the green button to redirect to the hidden link
-document.getElementById("greenButton").addEventListener("click", () => {
-    window.location.href = document.getElementById("videoLink").href;
-});
-
-// Ensure the button status is checked when the page loads
-window.onload = checkGreenButtonStatus;
+</body>
+</html>
