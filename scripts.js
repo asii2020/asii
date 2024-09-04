@@ -8,7 +8,7 @@ function redirectAndStartTimer() {
     sessionStorage.setItem("redButtonClicked", true);
 
     // Redirect to the traffic source URL in the same tab
-    window.location.href = 'https://servicefigured.com/pfdj1792fa?key=8dad13555503c6f7b9f307394497ba44';
+    window.location.href = 'https://www.cpmrevenuegate.com/wqwsm6vbp6?key=2f1830b01b03351e6358375eb547156a';
 }
 
 // Function to check if enough time has passed and enable the green button
@@ -48,7 +48,7 @@ document.getElementById("greenButton").addEventListener("click", () => {
     if (!redButtonClicked) {
         window.location.href = 'error.html';
     } else {
-        window.location.href = 'https://blackhubx.blogspot.com/2024/09/blog-post_2.html';
+        window.location.href = 'https://slfunzoneyt.blogspot.com/2024/09/aluthma-wela-video.html';
     }
 });
 
