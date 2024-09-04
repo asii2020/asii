@@ -3,13 +3,10 @@ const trafficSourceUrl = "https://your-traffic-source-link.com";
 
 // Function to redirect to the traffic source and start the 25-second timer
 function redirectAndStartTimer() {
-    // Save the current timestamp in localStorage
+    alert("Redirecting to the traffic source...");
     localStorage.setItem("redirectTime", new Date().getTime());
-
-    // Redirect to the traffic source
     window.location.href = trafficSourceUrl;
 }
-
 // Function to check if 25 seconds have passed and enable the green button
 function enableGreenButtonAfterTimer() {
     const redirectTime = localStorage.getItem("redirectTime");
