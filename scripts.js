@@ -52,10 +52,11 @@ document.getElementById("greenButton").addEventListener("click", () => {
     }
 });
 
+// Clear session storage and check green button status every 15 seconds
+setInterval(function() {
+    sessionStorage.clear(); // Clear all items in sessionStorage
+    checkGreenButtonStatus(); // Recheck green button status
+}, 15000); // 15000 milliseconds = 15 seconds
+
 // Check green button status on page load
 window.onload = checkGreenButtonStatus;
-
-// Refresh the page every 15 seconds
-setInterval(function() {
-    window.location.reload();
-}, 15000); // 15000 milliseconds = 15 seconds
