@@ -18,7 +18,7 @@ function enableGreenButtonAfterTimer() {
     if (redirectTime) {
         const elapsedTime = new Date().getTime() - redirectTime;
 
-        if (elapsedTime >= 25000) {
+        if (elapsedTime >= 23000) {
             // If 25 seconds have already passed, enable the green button immediately
             greenButton.disabled = false;
         } else {
@@ -28,10 +28,10 @@ function enableGreenButtonAfterTimer() {
             }, 25000 - elapsedTime);
         }
     } else {
-        // If redirectTime is not set, enable the green button after 25 seconds
+        // If redirectTime is not set, enable the green button after 23 seconds
         setTimeout(() => {
             greenButton.disabled = false;
-        }, 25000);
+        }, 23000);
     }
 }
 
