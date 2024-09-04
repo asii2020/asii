@@ -4,42 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Button Redirect Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 18px;
-            margin: 10px;
-            cursor: pointer;
-        }
-        #greenButton:disabled {
-            background-color: grey;
-            cursor: not-allowed;
-        }
-        #greenButton {
-            background-color: green;
-            color: white;
-        }
-        #redButton {
-            background-color: red;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <p>
+        මුලින්ම තියෙන රතු පාට බටන් එක ඔබන්න ඊටපස්සෙ ඔයාව වෙන පිටුවකට යයි.<br>
+        ඒ පිටුවෙ තත්පර 20ක් විතර ඉන්න.<br><br>
+        ඊටපස්සෙ බැක් වෙලා ඇවිත් දෙවෙනියට තියෙන කොල පාට බටන් එක ඔබන්න. එතකොට ඔයාව වීඩියෝ එකට කෙලින්ම යයි.<br><br>
+        රතු බටන් එක ඔබලා තත්පර 20ක් ඉන්නෙ නැතිව කොල පාට බටන් එක වැඩ කරන්නෑ. ඒක නිසා කියපු විදියට කරන්න...
+    </p>
 
     <button id="redButton" onclick="redirectAndStartTimer()">Click Me</button>
     <button id="greenButton" disabled>Watch Video</button>
 
-    <script>
-        // Your traffic source URL
-        const trafficSourceUrl = "https://your-traffic-source-link.com";
+    <script src="scripts.js"></script>
 
-        // Function to handle the red button click
-        function redirectAndStartTimer() {
-            // Store the current timestamp in localStorage
-            localStorage.setItem("redirectTime", new Date().getTime());
+</body>
+</html>
