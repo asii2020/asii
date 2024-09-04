@@ -1,13 +1,16 @@
-// Traffic source URL (replace this with your actual traffic source link)
-const trafficSourceUrl = "https://your-traffic-source-link.com";
+// Your traffic source URL
+const trafficSourceUrl = "https://www.cpmrevenuegate.com/wqwsm6vbp6?key=2f1830b01b03351e6358375eb547156a";
 
-// Function to redirect to the traffic source and start the 25-second timer
+// Function to handle the red button click
 function redirectAndStartTimer() {
-    alert("Redirecting to the traffic source...");
+    // Store the current timestamp in localStorage
     localStorage.setItem("redirectTime", new Date().getTime());
+
+    // Redirect to the traffic source
     window.location.href = trafficSourceUrl;
 }
-// Function to check if 25 seconds have passed and enable the green button
+
+// Function to enable the green button after 25 seconds
 function enableGreenButtonAfterTimer() {
     const redirectTime = localStorage.getItem("redirectTime");
 
