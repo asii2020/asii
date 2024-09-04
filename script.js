@@ -1,5 +1,5 @@
 // Traffic source URL (replace this with your actual traffic source link)
-const trafficSourceUrl = "https://your-traffic-source-link.com";
+const trafficSourceUrl = "https://www.cpmrevenuegate.com/wqwsm6vbp6?key=2f1830b01b03351e6358375eb547156a";
 
 // Function to redirect to the traffic source and start the 25-second timer
 function redirectAndStartTimer() {
