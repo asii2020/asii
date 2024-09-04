@@ -5,7 +5,10 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1e1e1e; /* Dark background color */
+    background-image: url('https://github.com/asii2020/asii/blob/master/ssc2006-02a-0.webp'); /* Background image */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
     color: #e0e0e0; /* Light text color for better readability */
 }
 
