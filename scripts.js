@@ -2,28 +2,28 @@
 const trafficSourceUrl = "https://www.cpmrevenuegate.com/wqwsm6vbp6?key=2f1830b01b03351e6358375eb547156a";
 const requiredTime = 23000; // 23 seconds in milliseconds
 
-// Clear localStorage to remove old values
-function clearLocalStorage() {
-    localStorage.removeItem('redirectTime');
-    localStorage.removeItem('redButtonClicked');
+// Clear sessionStorage to remove old values
+function clearSessionStorage() {
+    sessionStorage.removeItem('redirectTime');
+    sessionStorage.removeItem('redButtonClicked');
 }
 
 // Function to handle the red button click
 function redirectAndStartTimer() {
-    // Store the current timestamp in localStorage
-    localStorage.setItem("redirectTime", new Date().getTime());
-    localStorage.setItem("redButtonClicked", true);
+    // Store the current timestamp in sessionStorage
+    sessionStorage.setItem("redirectTime", new Date().getTime());
+    sessionStorage.setItem("redButtonClicked", true);
 
-    // Redirect to the traffic source
-    window.location.href = trafficSourceUrl;
+    // Open the traffic source URL in a new tab
+    window.open(trafficSourceUrl, '_blank');
 }
 
 // Function to check if enough time has passed and enable the green button
 function checkGreenButtonStatus() {
-    clearLocalStorage(); // Clear old values
+    clearSessionStorage(); // Clear old values
 
-    const redirectTime = localStorage.getItem("redirectTime");
-    const redButtonClicked = localStorage.getItem("redButtonClicked");
+    const redirectTime = sessionStorage.getItem("redirectTime");
+    const redButtonClicked = sessionStorage.getItem("redButtonClicked");
     const greenButton = document.getElementById("greenButton");
 
     // If redButtonClicked is not set, disable the green button
@@ -43,11 +43,17 @@ function checkGreenButtonStatus() {
             greenButton.disabled = false;
             console.log('Green Button Enabled');
         } else {
-            // If not, set a timeout to enable the green button after the remaining time
-            setTimeout(() => {
-                greenButton.disabled = false;
-                console.log('Green Button Enabled after Timeout');
-            }, requiredTime - elapsedTime);
+            // Poll every second to check if the required time has passed
+            const intervalId = setInterval(() => {
+                const elapsedTime = new Date().getTime() - parseInt(redirectTime, 10);
+                console.log('Polling - Elapsed Time:', elapsedTime);
+
+                if (elapsedTime >= requiredTime) {
+                    greenButton.disabled = false;
+                    clearInterval(intervalId);
+                    console.log('Green Button Enabled after Polling');
+                }
+            }, 1000);
         }
     } else {
         // If redirectTime is not set, keep the green button disabled
