@@ -2,6 +2,11 @@
 const trafficSourceUrl = "https://www.cpmrevenuegate.com/wqwsm6vbp6?key=2f1830b01b03351e6358375eb547156a";
 const requiredTime = 23000; // 23 seconds in milliseconds
 
+// Clear localStorage when the page loads
+function clearLocalStorage() {
+    localStorage.removeItem('redirectTime');
+}
+
 // Function to handle the red button click
 function redirectAndStartTimer() {
     // Store the current timestamp in localStorage
@@ -13,6 +18,8 @@ function redirectAndStartTimer() {
 
 // Function to check if enough time has passed and enable the green button
 function checkGreenButtonStatus() {
+    clearLocalStorage(); // Clear old values
+
     const redirectTime = localStorage.getItem("redirectTime");
     const greenButton = document.getElementById("greenButton");
     const videoLink = document.getElementById("videoLink");
