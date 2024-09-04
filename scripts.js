@@ -4,15 +4,15 @@ const requiredTime = 23000; // 23 seconds in milliseconds
 
 // Clear localStorage to remove old values
 function clearLocalStorage() {
-    console.log('Clearing localStorage');
     localStorage.removeItem('redirectTime');
+    localStorage.removeItem('redButtonClicked');
 }
 
 // Function to handle the red button click
 function redirectAndStartTimer() {
-    console.log('Red button clicked');
     // Store the current timestamp in localStorage
     localStorage.setItem("redirectTime", new Date().getTime());
+    localStorage.setItem("redButtonClicked", true);
 
     // Redirect to the traffic source
     window.location.href = trafficSourceUrl;
@@ -23,9 +23,15 @@ function checkGreenButtonStatus() {
     clearLocalStorage(); // Clear old values
 
     const redirectTime = localStorage.getItem("redirectTime");
+    const redButtonClicked = localStorage.getItem("redButtonClicked");
     const greenButton = document.getElementById("greenButton");
 
-    console.log('Redirect Time:', redirectTime);
+    // If redButtonClicked is not set, disable the green button
+    if (!redButtonClicked) {
+        greenButton.disabled = true;
+        console.log('Red button not clicked yet');
+        return;
+    }
 
     if (redirectTime) {
         // Calculate the elapsed time
@@ -46,7 +52,7 @@ function checkGreenButtonStatus() {
     } else {
         // If redirectTime is not set, keep the green button disabled
         greenButton.disabled = true;
-        console.log('Green Button Disabled');
+        console.log('Redirect Time Not Set');
     }
 }
 
