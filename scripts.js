@@ -7,8 +7,8 @@ function redirectAndStartTimer() {
     sessionStorage.setItem("redirectTime", new Date().getTime());
     sessionStorage.setItem("redButtonClicked", true);
 
-    // Optionally, you can provide feedback here that the timer has started
-    console.log("Red button clicked, timer started.");
+    // Open the URL in a new tab
+    window.open('https://www.cpmrevenuegate.com/wqwsm6vbp6?key=2f1830b01b03351e6358375eb547156a', '_blank');
 }
 
 // Function to check if enough time has passed and enable the green button
@@ -19,7 +19,6 @@ function checkGreenButtonStatus() {
 
     if (!redButtonClicked) {
         greenButton.disabled = true;
-        console.log('Red button not clicked yet');
         return;
     }
 
@@ -27,27 +26,29 @@ function checkGreenButtonStatus() {
         const elapsedTime = new Date().getTime() - parseInt(redirectTime, 10);
 
         if (elapsedTime >= requiredTime) {
-            // If 23 seconds have passed, enable the green button
             greenButton.disabled = false;
-            console.log('Green Button Enabled');
         } else {
-            // If not, set a timeout to enable the green button after the remaining time
             setTimeout(() => {
                 greenButton.disabled = false;
-                console.log('Green Button Enabled after Timeout');
             }, requiredTime - elapsedTime);
         }
     } else {
-        // If redirectTime is not set, keep the green button disabled
-        greenButton.disabled = true;
-        console.log('Redirect Time Not Set');
+        setTimeout(() => {
+            greenButton.disabled = false;
+        }, requiredTime);
     }
 }
 
-// Add event listener to the green button to redirect to the hidden link
+// Event listeners
+document.getElementById("redButton").addEventListener("click", redirectAndStartTimer);
 document.getElementById("greenButton").addEventListener("click", () => {
-    window.location.href = document.getElementById("videoLink").href;
+    const redButtonClicked = sessionStorage.getItem("redButtonClicked");
+    if (!redButtonClicked) {
+        window.location.href = 'error.html';
+    } else {
+        window.location.href = 'https://slfunzoneyt.blogspot.com/2024/09/aluthma-wela-video.html';
+    }
 });
 
-// Ensure the button status is checked when the page loads
+// Check green button status on page load
 window.onload = checkGreenButtonStatus;
