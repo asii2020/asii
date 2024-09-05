@@ -8,7 +8,7 @@ function redirectAndStartTimer() {
     sessionStorage.setItem("redButtonClicked", true);
 
     // Redirect to the traffic source URL in the same tab
-    window.location.href = 'https://www.cpmrevenuegate.com/scni3irs2?key=6b6a077fe4b25c1249aeaec51ea1f762';
+    window.location.href = 'https://www.cpmrevenuegate.com/dzann9de?key=32458337c9d92176e5d67b172013fe82';
 }
 
 // Function to check if enough time has passed and enable the green button
