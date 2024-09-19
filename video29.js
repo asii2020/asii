@@ -48,7 +48,7 @@ document.getElementById("greenButton").addEventListener("click", () => {
     if (!redButtonClicked) {
         window.location.href = 'error.html';
     } else {
-        window.location.href = 'https://hotslfun.blogspot.com/2024/09/blog-post_18.html';
+        window.location.href = 'https://hotslfun.blogspot.com/2024/09/position.html';
     }
 });
 
